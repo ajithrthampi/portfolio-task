@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kablammo&family=Mulish:ital,wght@0,200;0,300;0,500;0,600;0,900;1,500;1,600;1,1000&family=Nunito:wght@200;400;900&family=Open+Sans:wght@300&family=Poppins:wght@800&family=Roboto:wght@500&family=Work+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kablammo&family=Mulish:ital,wght@0,200;0,300;0,500;0,600;0,900;1,500;1,600;1,1000&family=Nunito:wght@200;400;900&family=Open+Sans:wght@300&family=Poppins:wght@800&family=Roboto:wght@500&family=Tinos:ital@1&family=Work+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Sansita+Swashed:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background: #0b011d;
+}
+
+@font-face {
+    font-family: "manrope-thin";
+    src: local("manrope-thin"),
+     url("./assets/fonts/manrope-thin.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+
+   @font-face {
+    font-family: "manrope-regular";
+    src: local("manrope-regular"),
+     url("./assets/fonts/manrope-regular.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+
+   @font-face {
+    font-family: "manrope-medium";
+    src: local("manrope-medium"),
+     url("./assets/fonts/manrope-medium.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+   @font-face {
+    font-family: "manrope-medium";
+    src: local("manrope-medium"),
+     url("./assets/fonts/manrope-medium.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+
+   @font-face {
+    font-family: "manrope-bold";
+    src: local("manrope-bold"),
+     url("./assets/fonts/manrope-bold.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+   
+   @font-face {
+    font-family: "manrope-extrabold";
+    src: local("manrope-extrabold"),
+     url("./assets/fonts/manrope-extrabold.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+
+   @font-face {
+    font-family: "manrope-semibold";
+    src: local("manrope-semibold"),
+     url("./assets/fonts/manrope-semibold.otf") format("truetype");
+    /* font-weight: bold; */
+   }
+
+   .fontManrope-thin {
+    font-family: "manrope-thin" ;
+   }
+
+   .fontManrope-regular {
+    font-family: "manrope-regular" ;
+   }
+
+   .fontManrope-medium {
+    font-family: "manrope-medium" ;
+   }
+
+   .fontManrope-bold {
+    font-family: "manrope-bold" ;
+   }
+   .fontManrope-bold {
+    font-family: "manrope-bold" ;
+   }
+
+   .fontManrope-semibold {
+    font-family: "manrope-semibold" ;
+   }
+
