@@ -5,6 +5,7 @@ import Services from '../components/Services'
 import Skills from '../components/skills/Skills'
 import About from '../components/about/About'
 import Projects from '../components/projects/Projects'
+import Timeline from '../components/timeline/Timeline'
 
 
 
@@ -17,6 +18,7 @@ const Homepage = () => {
         <Services />
         <Skills/>
         <Projects />
+        <Timeline />
     </div>
   )
 }
