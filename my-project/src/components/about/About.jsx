@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import square1 from "../../assets/images/square/square1.png"
 import squareShadow1 from "../../assets/images/square/squareShadow1.png"
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
@@ -12,10 +12,18 @@ import "./about.css"
 
 const About = () => {
     const { state } = useContext(ApiContext)
+    const [social, setSocial] = useState([])
+
+    useEffect(() => {
+        if (state) {
+            setSocial(state?.social_handles)
+        }
+    }, [state])
     // console.log("state..........", state);
 
     return (
-        <div className='h-full  '>
+        <div className='h-full  ' id='about'>
+
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
             <div className='xl:px-[150px] md:px-[40px]  sm:px-[30px] vsm:px-[12px] px-[7px] md:py-28 py-16 '>
 
@@ -89,11 +97,17 @@ const About = () => {
                                 </div>
 
                                 <div className='pt-10 flex sm:flex-row flex-col sm:items-center gap-3  '>
-                                    <div className=' p-2 border border-[#302D38] rounded-full flex gap-2 sm:w-full w-36'>
-                                        <button className='w-10 h-10 rounded-full border border-[#302D38] flex justify-center items-center bg-[#1a0f2e]'><a href=""><FaFacebook /></a></button>
-                                        <button className='w-10 h-10 rounded-full border border-[#302D38] flex justify-center items-center bg-[#1a0f2e]'><a href=""><FaTwitter /></a></button>
-                                        <button className='w-10 h-10 rounded-full border border-[#302D38] flex justify-center items-center bg-[#1a0f2e]'><a href=""><FaLinkedin /></a></button>
+                                    <div className=' p-2 border border-[#302D38] rounded-full flex gap-2  ' >
+                                        {social && social.map((item, index) => (
+                                            <a href={item.url}>
+
+                                            <button className='w-8 h-8 rounded-full border border-[#302D38] flex justify-center items-center bg-[#1a0f2e]' key={index}>
+                                                <img src={item.image.url} alt="" />
+                                            </button>
+                                            </a>
+                                        ))}
                                     </div>
+
                                     <div className='flex items-center gap-3'>
                                         {/* <button className='w-36 py-4 text-white text-sm fontManrope-medium bg-[#150b26] rounded-lg flex items-center justify-center gap-1  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}>Lets Work </button> */}
                                         <button className='w-36 bg-gradient-to-b  from-purple-800 to-transparent py-4 text-white  md:text-sm text-xs  fontManrope-medium bg-[#150b26 rounded-lg flex items-center justify-center gap-1 ' style={{ border: " 1px solid rgb(48, 45, 56)" }}>Download CV </button>

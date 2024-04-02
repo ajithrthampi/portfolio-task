@@ -1,0 +1,21 @@
+/* Customize the colors and other styles as needed */
+.glass-effect-button {
+    background-color: rgba(19, 9, 36, 0.215);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(73,66,88);
+    color: #fff;
+    padding: 5px 5px;
+    /* font-size: 16px; */
+    border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+
+  
+  /* Apply the glass effect on hover */
+  .glass-effect-buttons:hover {
+   background-color: rgba(255, 255, 255, 0.087);
+  backdrop-filter: blur(10px);
+  /* border: px solid rgb(73,66,88);   */
+  }

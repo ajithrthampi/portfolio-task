@@ -16,7 +16,7 @@ const Timeline = () => {
     const [openIndex, setOpenIndex] = useState(0);
     const [openIndex2, setOpenIndex2] = useState(null);
 
-
+    // console.log("nonEducationData", state);
 
     useEffect(() => {
         if (state) {
@@ -32,7 +32,7 @@ const Timeline = () => {
         setOpenIndex2(index === openIndex2 ? null : index);
     }
 
-    console.log("openIndex2", openIndex2);
+    // console.log("openIndex2", openIndex2);
 
     const getContentHeight = (ref) => {
         if (ref.current) {
@@ -52,7 +52,7 @@ const Timeline = () => {
     }, [timeLine]);
 
     return (
-        <div className='h-full p timeline-container '>
+        <div className='h-full  timeline-container'  id='timeline'>
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
             <div className='xl:px-[150px] md:px-[40px]  sm:px-[30px] vsm:px-[12px] px-[7px] md:py-28 py-16 '>
 
@@ -109,7 +109,7 @@ const Timeline = () => {
                                         >
                                             <div className='md:pt-10 pt-7 flex md:flex-row flex-col md:gap-0 gap-3 md:items-center justify-between   fontManrope-Regular'>
                                                 <p className='text-white md:text-xl text-lg'>{item.jobTitle}</p>
-                                                <p className='text-white text-base flex md:flex-row flex-col'>{item.endDate} ,<span className='md:pt-0 pt-5'>{item.jobLocation}</span> </p>
+                                                <p className='text-white text-base flex md:flex-row flex-col'>{new Date(item.endDate).toDateString()} , <span className='md:pt-0 pt-5'> {item.jobLocation}</span> </p>
                                             </div>
                                             <div>
                                                 <p className='fontManrope-thin text-sm pt-6 tracking-wider'>{item.summary}</p>
@@ -158,13 +158,13 @@ const Timeline = () => {
                                         </div>
                                         <div
                                             ref={contentRef}
-                                            className={`transition-all duration-500 ease-in-out overflow-hidden ${openIndex2 === index ? 'max-h-auto' : 'max-h-0'
+                                            className={`transition-all md:pr-5 pr-1 duration-500 ease-in-out overflow-hidden ${openIndex2 === index ? 'max-h-auto' : 'max-h-0'
                                                 }`}
-                                            style={{ maxHeight: openIndex2 === index ? getContentHeight() + 'px' : '0' }}
+                                            style={{ maxHeight: openIndex2 === index ? getContentHeight(contentRef) + 'px' : '0' }}
                                         >
                                             <div className='md:pt-10 pt-7 flex md:flex-row flex-col md:gap-0 gap-3 md:items-center justify-between   fontManrope-Regular'>
                                                 <p className='text-white md:text-xl text-lg'>{item.jobTitle}</p>
-                                                <p className='text-white text-base flex md:flex-row flex-col'>{item.endDate} ,<span className='md:pt-0 pt-5 '>{item.jobLocation}</span> </p>
+                                                <p className='text-white text-base flex md:flex-row flex-col'>{new Date(item.endDate).toDateString()}  ,<span className='md:pt-0 pt-5 '>{item.jobLocation}</span> </p>
                                             </div>
                                             <div>
                                                 <p className='fontManrope-thin text-sm pt-6 tracking-wider'>{item.summary}</p>

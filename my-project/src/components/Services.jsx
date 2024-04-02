@@ -36,7 +36,7 @@ const Services = () => {
     }
 
     return (
-        <div className='h-full  '>
+        <div className='h-full  ' id="services">
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
             <div className='xl:px-[150px] md:px-[40px]  sm:px-[30px] vsm:px-[12px] px-[7px] md:py-28 py-16 '>
 

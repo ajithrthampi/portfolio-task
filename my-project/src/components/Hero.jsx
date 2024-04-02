@@ -32,7 +32,7 @@ const Hero = () => {
         <p className='max-w-[700px] text-center '>John Doe</p>
       </div> */}
 
-      <div className=' flex  justify-center items-center h-screen relative'>
+      <div className=' flex  justify-center items-center h-screen relative' id='home'>
         <div className=' rounded-full w-[480px] h-[480px] overflow-hidden border border-[#0b011d]'>
           <img className='w-full h-full  object-cover' src={state.about?.avatar.url} alt="" />
         </div>

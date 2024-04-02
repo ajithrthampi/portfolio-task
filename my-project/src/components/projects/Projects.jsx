@@ -137,7 +137,7 @@ const Projects = () => {
     // console.log("projects", state);
 
     return (
-        <div className='h-full   ' >
+        <div className='h-full   ' id='projects' >
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
             <div className='xl:px-[150px] md:px-[40px]  sm:px-[30px] vsm:px-[12px] px-[7px] md:py-28 py-16 '>
                 <div className='flex flex-col  justify-center items-center '>
@@ -157,7 +157,7 @@ const Projects = () => {
                         }
                     </div>
                 </div>
-                <div className='pt-16     text-white'>
+                <div className='pt-16  text-white'>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-14 px-1 group">
                         {
                             filterTeckStack && filterTeckStack.map((item, index) => (
@@ -165,7 +165,7 @@ const Projects = () => {
                                     {
                                         index % 2 === 0 && (
                                             <div className="grid gap-4 cursor-pointer  relative" onClick={() => handleShowModal(item)} >
-                                                <div className='lg:p-14 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
+                                                <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
                                                     onMouseMove={(e) => handleMouseMove(e, index)}
                                                     onMouseLeave={handleMouseLeave}
                                                 >
@@ -192,7 +192,7 @@ const Projects = () => {
                                     {
                                         index % 2 === 1 && (
                                             <div className="grid gap-4 md:mt-10 cursor-pointer " onClick={() => handleShowModal(item)}>
-                                                <div className='lg:p-14 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
+                                                <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
                                                     onMouseMove={(e) => handleMouseMove(e, index)}
                                                     onMouseLeave={handleMouseLeave}
                                                 >
@@ -256,7 +256,7 @@ const Projects = () => {
                                         <div className='flex items-center justify-center gap-3 pt-5'>
                                             {
                                                 modalData?.techStack?.map((item, index) => (
-                                                    <button className='bg-[#d3d3d3] text-[#000000] w-28  rounded-md py-2 text fontManrope-medium text-sm ' key={index}>{item}</button>
+                                                    <button className='bg-[#d3d3d3] text-[#000000] w-28  rounded-md py-2 text fontManrope-medium sm:text-sm text-xs ' key={index}>{item}</button>
                                                 ))
                                             }
                                         </div>
