@@ -99,8 +99,7 @@ const About = () => {
                                 <div className='pt-10 flex sm:flex-row flex-col sm:items-center gap-3  '>
                                     <div className=' p-2 border border-[#302D38] rounded-full flex gap-2  ' >
                                         {social && social.map((item, index) => (
-                                            <a href={item.url}>
-
+                                            <a href={item.url} key={index}>
                                             <button className='w-8 h-8 rounded-full border border-[#302D38] flex justify-center items-center bg-[#1a0f2e]' key={index}>
                                                 <img src={item.image.url} alt="" />
                                             </button>

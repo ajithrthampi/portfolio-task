@@ -19,7 +19,7 @@ const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([])
     const {state} = useContext(ApiContext)
 
-    console.log(state);
+    // console.log(state);
 
     useEffect(() => {
         if(state){
@@ -29,7 +29,7 @@ const Testimonials = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    console.log("currentSlide", state);
+    // console.log("currentSlide", state);
     return (
         <div className='h-full  timeline-containe   '  id='testimonial'>
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
@@ -69,7 +69,7 @@ const Testimonials = () => {
                                 // slidesPerView={3}
                                 centeredSlides={true}
                                 autoplay={{
-                                    delay: 2500,
+                                    delay: 1500,
                                     disableOnInteraction: false,
                                     pauseOnMouseEnter :true
                                 }}
@@ -99,7 +99,7 @@ const Testimonials = () => {
                                 {
                                     testimonials.map((testimonial, index) => (
 
-                                        <SwiperSlide className=''>
+                                        <SwiperSlide className='' key={index}>
                                             <div className=''>
 
                                             <div className='rounded-xl overflow-hidden testimonial-container  md:p-9 p-5  group-hover:blur hover:!blur-none group-hover:scale-[0.85] hover:!scale-100' style={{ border: " 1px solid rgb(48, 45, 56)" }}>

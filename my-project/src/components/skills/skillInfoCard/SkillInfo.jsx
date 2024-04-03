@@ -16,7 +16,7 @@ const SkillInfo = ({ heading, skills, filteredSkills }) => {
 
     return (
         <div className='min-h-[23rem] border rounded-xl  overflow-hidden' >
-            <div className='p-4 border-b text-[#ffffff] fontManrope-medium'>{heading}</div>
+            <p className='p-4 border-b text-[#ffffff] fontManrope-medium'>{heading}</p>
             <div className='text-white  p-6 fontManrope-regular text-sm relative '>
                 {
                     skills && skills.map((item, index) => (

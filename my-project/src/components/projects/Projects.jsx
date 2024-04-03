@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { ApiContext } from '../../context/ApiContext'
 import {
+    AnimatePresence,
     motion,
     useMotionTemplate,
     useMotionValue,
@@ -132,9 +133,6 @@ const Projects = () => {
         setFilterStack(projects)
     }, [projects])
 
-    // console.log("filterTeckStack", filterTeckStack);
-
-    // console.log("projects", state);
 
     return (
         <div className='h-full   ' id='projects' >
@@ -158,66 +156,74 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className='pt-16  text-white'>
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-14 px-1 group">
-                        {
-                            filterTeckStack && filterTeckStack.map((item, index) => (
-                                <div key={index}>
-                                    {
-                                        index % 2 === 0 && (
-                                            <div className="grid gap-4 cursor-pointer  relative" onClick={() => handleShowModal(item)} >
-                                                <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
-                                                    onMouseMove={(e) => handleMouseMove(e, index)}
-                                                    onMouseLeave={handleMouseLeave}
-                                                >
-                                                    <motion.img
-                                                        className='rounded-xl '
-                                                        src={item?.image.url}
-                                                        alt=''
-                                                        style={{
-                                                            rotateX: hoveredImageIndex === index ? rotateX : 0,
-                                                            rotateY: hoveredImageIndex === index ? rotateY : 0
-                                                        }}
-                                                        whileHover={{ scale: 1.04 }}
+                    <AnimatePresence>
+                        <motion.div
+                            layout
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-14 px-1 group">
+                            {
+                                filterTeckStack && filterTeckStack.map((item, index) => (
+                                    <motion.div layout key={index}>
+                                        {
+                                            index % 2 === 0 && (
+                                                <div className="grid gap-4 cursor-pointer  relative" onClick={() => handleShowModal(item)} >
+                                                    <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
+                                                        onMouseMove={(e) => handleMouseMove(e, index)}
+                                                        onMouseLeave={handleMouseLeave}
+                                                    >
+                                                        <motion.img
+                                                            className='rounded-xl '
+                                                            src={item?.image.url}
+                                                            alt=''
+                                                            style={{
+                                                                rotateX: hoveredImageIndex === index ? rotateX : 0,
+                                                                rotateY: hoveredImageIndex === index ? rotateY : 0
+                                                            }}
+                                                            whileHover={{ scale: 1.04 }}
+                                                        />
+                                                    </div>
+                                                    <p className='bg-clip-text  bg-gradient-to-br from-white via-[#bbb8c0] to-[#bbb8c0] md:text-2xl text-base fontManrope-medium tracking-wider'>{item.title}</p>
+                                                    <div
+                                                        dangerouslySetInnerHTML={{ __html: truncateText(item.description || '', 15) }}
+                                                        className='text-[#b5abcb] fontManrope-regular text-sm  tracking-wide leading-6 max-w-[500px] -mt-1 '
+                                                    />
+                                                    {/* <div className='cursor'></div> */}
+                                                </div>
+                                            )
+                                        }
+                                        {
+                                            index % 2 === 1 && (
+                                                <div className="grid gap-4 md:mt-10 cursor-pointer " onClick={() => handleShowModal(item)}>
+                                                    <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
+                                                        onMouseMove={(e) => handleMouseMove(e, index)}
+                                                        onMouseLeave={handleMouseLeave}
+                                                    >
+                                                        <motion.img
+                                                            className='rounded-xl'
+                                                            src={item?.image.url}
+                                                            alt=''
+                                                            style={{
+                                                                rotateX: hoveredImageIndex === index ? rotateX : 0,
+                                                                rotateY: hoveredImageIndex === index ? rotateY : 0
+                                                            }}
+                                                            whileHover={{ scale: 1.04 }}
+                                                        />
+                                                    </div>
+                                                    <p className='bg-clip-text  bg-gradient-to-br from-white via-[#bbb8c0] to-[#bbb8c0] md:text-2xl text-base fontManrope-medium tracking-wider'>{item.title}</p>
+                                                    <div
+                                                        dangerouslySetInnerHTML={{ __html: truncateText(item.description || '', 15) }}
+                                                        className='text-[#b5abcb] fontManrope-regular text-sm  tracking-wide leading-6 max-w-[500px] -mt-1  '
                                                     />
                                                 </div>
-                                                <p className='bg-clip-text  bg-gradient-to-br from-white via-[#bbb8c0] to-[#bbb8c0] md:text-2xl text-base fontManrope-medium tracking-wider'>{item.title}</p>
-                                                <div
-                                                    dangerouslySetInnerHTML={{ __html: truncateText(item.description || '', 15) }}
-                                                    className='text-[#b5abcb] fontManrope-regular text-sm  tracking-wide leading-6 max-w-[500px] -mt-1 '
-                                                />
-                                                {/* <div className='cursor'></div> */}
-                                            </div>
-                                        )
-                                    }
-                                    {
-                                        index % 2 === 1 && (
-                                            <div className="grid gap-4 md:mt-10 cursor-pointer " onClick={() => handleShowModal(item)}>
-                                                <div className='lg:p-8 md:p-7 sm:px-6 sm:py-5 px-5 py-4 rounded-2xl h-full  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}
-                                                    onMouseMove={(e) => handleMouseMove(e, index)}
-                                                    onMouseLeave={handleMouseLeave}
-                                                >
-                                                    <motion.img
-                                                        className='rounded-xl'
-                                                        src={item?.image.url}
-                                                        alt=''
-                                                        style={{
-                                                            rotateX: hoveredImageIndex === index ? rotateX : 0,
-                                                            rotateY: hoveredImageIndex === index ? rotateY : 0
-                                                        }}
-                                                        whileHover={{ scale: 1.04 }}
-                                                    />
-                                                </div>
-                                                <p className='bg-clip-text  bg-gradient-to-br from-white via-[#bbb8c0] to-[#bbb8c0] md:text-2xl text-base fontManrope-medium tracking-wider'>{item.title}</p>
-                                                <div
-                                                    dangerouslySetInnerHTML={{ __html: truncateText(item.description || '', 15) }}
-                                                    className='text-[#b5abcb] fontManrope-regular text-sm  tracking-wide leading-6 max-w-[500px] -mt-1  '
-                                                />
-                                            </div>
-                                        )}
-                                </div>
-                            ))
-                        }
-                    </div>
+                                            )}
+                                    </motion.div>
+                                ))
+                            }
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
 
@@ -235,10 +241,6 @@ const Projects = () => {
                                             <img className='md:h-[400px] w-[700px]' src={modalData?.image?.url} alt={modalData.title} />
                                             <div className='flex gap-6 items-center justify-between w-full'>
                                                 <Button modalData={modalData} />
-                                                {/* <a href={modalData?.githuburl}>
-                                                <button className='h-12 w-12 rounded-xl hover:bg-[#e7e7e7] transition-all duration-200 flex items-center justify-center'><FaGithub size={25} /></button>
-                                            </a> */}
-
                                                 <a href={modalData?.githuburl} className=" group rounded-full px-2 py-2 overflow-hidde group bg-g[#e7e7e7]500  relative hover:bg-gradient-to-r hover:[#e7e7e7]  hover:ring-2 hover:ring-offset-2 hover:ring-[#e7e7e7] transition-all ease-out duration-300">
                                                     <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                                                     <span className="relative"><FaGithub size={25} /></span>

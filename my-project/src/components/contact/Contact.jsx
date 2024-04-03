@@ -17,10 +17,6 @@ const Contact = () => {
         }
     }, [state])
 
-    console.log("state", state);
-    console.log("social", social);
-
-
     return (
         <div className='h-full  contact-containe overflow-hidden' id="contact">
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
@@ -126,7 +122,7 @@ const Contact = () => {
                     </p>
                         <div className='flex text-2xl gap-2'>
                     {social && social.map((item, index) => (
-                            <a href={item.url}>
+                            <a key={index} href={item.url}>
                                 <button className=' text-white flex justify-center items-center hover:scale-105 '>
                                     <img className='w-8 h-8 rounded-full border-[1.97px] p-[1px] ' src={item.image.url} alt="" />
                                 </button>
