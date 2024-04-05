@@ -27,6 +27,8 @@ const Projects = () => {
     const [techStacks, setTechStacks] = useState([]);
     const [filterTeckStack, setFilterStack] = useState([])
 
+    console.log(projects);
+
 
     // passing project data to state
     useEffect(() => {
@@ -100,8 +102,10 @@ const Projects = () => {
                 projects.flatMap(project => project.techStack.map(tech => tech.trim()))
             )];
             setTechStacks(["All", ...extractedTechStacks]);
+            // console.log("extractedTechStacks", extractedTechStacks);
         }
-    }, [state]);
+
+    }, [projects]);
 
     // Prohject FIltering
     const handleProjectFilter = (item) => {
