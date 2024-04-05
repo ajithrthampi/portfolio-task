@@ -16,8 +16,6 @@ const Timeline = () => {
     const [openIndex, setOpenIndex] = useState(0);
     const [openIndex2, setOpenIndex2] = useState(null);
 
-    // console.log("nonEducationData", state);
-
     useEffect(() => {
         if (state) {
             setTimeLine(state?.timeline)
@@ -32,7 +30,6 @@ const Timeline = () => {
         setOpenIndex2(index === openIndex2 ? null : index);
     }
 
-    // console.log("openIndex2", openIndex2);
 
     const getContentHeight = (ref) => {
         if (ref.current) {
@@ -199,8 +196,6 @@ const Timeline = () => {
                                 ))}
                         </div>
                     </div>
-
-
                 </section>
             </div>
         </div>

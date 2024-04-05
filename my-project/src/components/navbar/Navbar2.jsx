@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ApiContext } from '../../context/ApiContext'
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import { IoClose } from "react-icons/io5";
 import { motion } from 'framer-motion';
 import { menuSlide } from './animation';
@@ -20,12 +20,20 @@ const Navbar2 = () => {
     const handleShow = () => {
         setShow(true)
     }
-    console.log("name", state);
+    const links = [
+        { id: "home", text: "Home" },
+        { id: "about", text: "About" },
+        { id: "services", text: "Services" },
+        { id: "skills", text: "Skills" },
+        { id: "projects", text: "Projects" },
+        { id: "timeline", text: "Timeline" },
+        { id: "testimonial", text: "Testimonial" },
+        { id: "contact", text: "Contact" }
+    ];
     return (
         <>
-
-            <nav className=" absolute right-0 left-0 z-50 ">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <nav className=" slg:absolute fixed right-0 left-0 z-50 ">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 slg:bg-transparent bg-[#0b011e]">
                     <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
 
                         <span className="self-center text-3xl text-white fontManrope-bold">{name?.name}</span>
@@ -38,63 +46,27 @@ const Navbar2 = () => {
                     </button>
                     <div className="hidden w-full slg:block md:w-auto text-white fontManrope-regular" id="navbar-default">
                         <ul className="font-medium flex flex-col text-[14px] p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-5 rtl:space-x-reverse md:mt-0 md:border-0">
-                            <li>
-                                <Link to="home">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Home</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="about">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">About</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="services">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Services</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="skills">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Skills</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="projects">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Projects</p>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="timeline">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Timeline</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="testimonial">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Testimonial</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="contact">
-                                    <p className=" cursor-pointer block py-2 px-3  rounded md:bg-transparent  md:p-0 " aria-current="page">Contact</p>
-                                </Link>
-                            </li>
+                            {links.map(link => (
+                                <li key={link.id}>
+                                    <ScrollLink to={link.id} spy={true} smooth={true} offset={-70} duration={500}>
+                                        <p className="cursor-pointer block py-2 px-3 rounded md:bg-transparent md:p-0" aria-current="page">{link.text}</p>
+                                    </ScrollLink>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
-
-
                 {
                     show ?
                         <>
-                            <motion.div 
-                             initial={{opacity: 0, x: 100}}
-                             animate={{opacity: 1, x: 0}}
-                             exit={{opacity: 0, x:200}}
-                            className='fixed bg-[#0d0716] top-0 right-0 w-[300px] h-screen slg:hidden '>
+                            <motion.div
+                                initial={{ opacity: 0, x: 100 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 200 }}
+                                className='fixed bg-[#0d0716] top-0 right-0 w-[300px] h-screen slg:hidden '>
                                 <div className='w-full'>
                                     <div className='absolut top-3 text-white right-3 left-0 text-3xl cursor-pointer w-full'>
-                                        <div className='flex items-center justify-between  w-full px-6 pt-7' onClick={()=>setShow(false)}>
+                                        <div className='flex items-center justify-between  w-full px-6 pt-7' onClick={() => setShow(false)}>
                                             <p className='className="self-center text-2xl text-white fontManrope-bold"'>{name?.name}</p>
                                             <IoClose />
                                         </div>
@@ -102,51 +74,15 @@ const Navbar2 = () => {
 
                                     <div className=" w-full flex justify-center items-center  text-white fontManrope-regular " id="navbar-default">
                                         <ul className="font-medium flex flex-col justify-cente items-center text-xl p-4 md:p-0 mt-4  rounded-lg  space-x-5 rtl:space-x-reverse ">
-                                            <li>
-                                                <Link to="home">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300 block py-2 px-3  p-0 " aria-current="page">Home</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="about">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300  block py-2 px-3  p-0 " aria-current="page">About</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="services">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300 block py-2 px-3  p-0 " aria-current="page">Services</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="skills">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300  block py-2 px-3  p-0 " aria-current="page">Skills</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="projects">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300  block py-2 px-3  p-0 " aria-current="page">Projects</p>
-                                                </Link>
-                                            </li>
-
-                                            <li>
-                                                <Link to="timeline">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300  block py-2 px-3  p-0 " aria-current="page">Timeline</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="testimonial">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300 block py-2 px-3  p-0 " aria-current="page">Testimonial</p>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="contact">
-                                                    <p className=" cursor-pointer hover:text-[#6820a5] transition-all duration-300 block py-2 px-3  p-0 " aria-current="page">Contact</p>
-                                                </Link>
-                                            </li>
+                                            {links.map(link => (
+                                                <li key={link.id}>
+                                                    <ScrollLink to={link.id} spy={true} smooth={true} offset={-70} duration={500} onClick={() => setShow(false)}>
+                                                        <p className="cursor-pointer hover:text-[#6820a5] transition-all duration-300 block py-2 px-3  p-0" aria-current="page">{link.text}</p>
+                                                    </ScrollLink>
+                                                </li>
+                                            ))}
                                         </ul>
-
                                     </div>
-
                                     <div className='pt-6 px-8 text-white fontManrope-regular'>
                                         <div className=''>
                                             <p>My Address</p>

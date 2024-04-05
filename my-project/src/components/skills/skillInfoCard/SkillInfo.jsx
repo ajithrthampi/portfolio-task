@@ -10,10 +10,6 @@ const SkillInfo = ({ heading, skills, filteredSkills }) => {
 
     // Filter skills based on hovered skill
     const filteredSkillsArray = skills ? skills.filter(item => item.name === hoveredSkill) : [];
-    // console.log("filteredSkillsArray", skills);
-
-
-
     return (
         <div className='min-h-[23rem] border rounded-xl  overflow-hidden' >
             <p className='p-4 border-b text-[#ffffff] fontManrope-medium'>{heading}</p>

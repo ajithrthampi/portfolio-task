@@ -13,8 +13,6 @@ import Button from '../buttons/Button';
 import { FaGithub } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
-
-
 const Projects = () => {
     const { state } = useContext(ApiContext)
     const [value, setValue] = useState("All")
@@ -64,12 +62,8 @@ const Projects = () => {
         const height = rect.height;
         const mouseX = e.clientX - rect.left;
         const mouseY = e.clientY - rect.top;
-        // console.log("dd", { mouseX, mouseY });
-
         const xPct = mouseX / width - 0.5
         const yPct = mouseY / width - 0.5
-        // console.log(yPct);
-
         x.set(xPct);
         y.set(yPct);
     };
@@ -102,8 +96,6 @@ const Projects = () => {
     //filtering tectStack
     useEffect(() => {
         if (state) {
-            // const extractedTechStacks = projects.flatMap(project => project.techStack);
-            // const extractedTechStacks = [...new Set(projects.flatMap(project => project.techStack))];
             const extractedTechStacks = [...new Set(
                 projects.flatMap(project => project.techStack.map(tech => tech.trim()))
             )];
@@ -124,15 +116,12 @@ const Projects = () => {
         else if (item === "All") {
             setFilterStack(projects)
         }
-        // else {
-        //    setFilterStack(projects)
-        // }
+
     }
 
     useEffect(() => {
         setFilterStack(projects)
     }, [projects])
-
 
     return (
         <div className='h-full   ' id='projects' >
@@ -147,7 +136,6 @@ const Projects = () => {
                         {
                             techStacks.map((item, index) => (
                                 <ul className='fontManrope-medium text-white relative ' key={index}>
-                                    {/* <li className='cursor-pointer hover:scale-105 transition-all duration-150'>All</li> */}
                                     <li className={`cursor-pointer hover:scale-105 transition-all duration-150 md:text-base text-sm  ${value === item ? "text-[#6720a2]" : ""}`} onClick={() => handleProjectFilter(item)}>{item}</li>
                                     <div className={`${value === item ? "h-[2px] bg-[#6720a2] mt-1" : ""}  `} ></div>
                                 </ul>
@@ -190,7 +178,6 @@ const Projects = () => {
                                                         dangerouslySetInnerHTML={{ __html: truncateText(item.description || '', 15) }}
                                                         className='text-[#b5abcb] fontManrope-regular text-sm  tracking-wide leading-6 max-w-[500px] -mt-1 '
                                                     />
-                                                    {/* <div className='cursor'></div> */}
                                                 </div>
                                             )
                                         }
@@ -226,7 +213,6 @@ const Projects = () => {
                     </AnimatePresence>
                 </div>
             </div>
-
             {
                 shoeModal &&
                 <div className=''  >
@@ -263,14 +249,12 @@ const Projects = () => {
                                             }
                                         </div>
                                         <p className='text-[#2e2e2e] fontManrope-regular text-[15px] px-5 tracking-wide leading-6 pt-10'>{modalData.description}</p>
-                                        {/* <button className='bg-[#0b011d] text-[#d0cfd1] w-32 rounded-md py-3 text fontManrope-medium text-md'>{modalData.techStack[1]}</button> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             }
         </div>
     )

@@ -19,7 +19,6 @@ const About = () => {
             setSocial(state?.social_handles)
         }
     }, [state])
-    // console.log("state..........", state);
 
     return (
         <div className='h-full  ' id='about'>
@@ -56,7 +55,6 @@ const About = () => {
                 <div className='md:pt-24 pt-12 '>
                     <div className=' flex sm:flex-row flex-col justify-between sm:items-center gap-6'>
                         <p className='text-white   lg:text-4xl md:text-2xl sm:text-xl uppercase fontManrope-semibold'>I AM {state?.about?.name} </p>
-                        {/* <button class="gradient-button">Click me</button> */}
                         <button className='w-36 bg-gradient-to-b  from-purple-800 to-transparent py-4 text-white  md:text-sm text-xs  fontManrope-medium bg-[#150b26 rounded-lg flex items-center justify-center gap-1  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}>Know More <LiaLongArrowAltRightSolid size={16} /></button>
                     </div>
                     <hr className="h-[1.5px] md:mt-12 mt-6 bg-gray-900/90  border-0 " />
@@ -108,7 +106,7 @@ const About = () => {
                                     </div>
 
                                     <div className='flex items-center gap-3'>
-                                        {/* <button className='w-36 py-4 text-white text-sm fontManrope-medium bg-[#150b26] rounded-lg flex items-center justify-center gap-1  ' style={{ border: " 1px solid rgb(48, 45, 56)" }}>Lets Work </button> */}
+                                       
                                         <button className='w-36 bg-gradient-to-b  from-purple-800 to-transparent py-4 text-white  md:text-sm text-xs  fontManrope-medium bg-[#150b26 rounded-lg flex items-center justify-center gap-1 ' style={{ border: " 1px solid rgb(48, 45, 56)" }}>Download CV </button>
                                     </div>
                                 </div>

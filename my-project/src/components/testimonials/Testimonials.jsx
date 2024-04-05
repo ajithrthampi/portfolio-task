@@ -13,13 +13,9 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { ApiContext } from '../../context/ApiContext';
 
-
 const Testimonials = () => {
-    
     const [testimonials, setTestimonials] = useState([])
     const {state} = useContext(ApiContext)
-
-    // console.log(state);
 
     useEffect(() => {
         if(state){
@@ -29,7 +25,7 @@ const Testimonials = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    // console.log("currentSlide", state);
+
     return (
         <div className='h-full  timeline-containe   '  id='testimonial'>
             <hr className="h-[1.5px] bg-gray-900 bg-gradient-to-r from-[#0b011d] via-[#372c4b] to-[#0b011d]  border-0 " />
@@ -66,16 +62,12 @@ const Testimonials = () => {
                         <div className=" pt-20 ">
                             <Swiper
                                 spaceBetween={30}
-                                // slidesPerView={3}
                                 centeredSlides={true}
                                 autoplay={{
                                     delay: 1500,
                                     disableOnInteraction: false,
                                     pauseOnMouseEnter :true
                                 }}
-                                // pagination={{
-                                //     clickable: true,
-                                // }}
                                 navigation={false}
                                 modules={[Autoplay, Pagination, Navigation]}
                                 className="mySwiper"

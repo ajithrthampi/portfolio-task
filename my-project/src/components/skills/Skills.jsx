@@ -13,13 +13,11 @@ const Skills = () => {
     const handleSelectedSkills = (data) => {
         setSelectedSkills(data)
     }
-
     useEffect(() => {
         if (state.skills) {
             setSkills(state.skills);
         }
     }, [state.skills]);
-
     useEffect(() => {
         const frontendSkills = skills.filter(skill => ['HTML', 'CSS', 'Tailwind', 'React', 'Next.js', 'Redux'].includes(skill.name));
         const backendSkills = skills.filter(skill => ['Node.js', 'MongoDB', 'GraphQL'].includes(skill.name));
@@ -31,11 +29,9 @@ const Skills = () => {
         const toolsCategory = { title: "Tools", skills: toolsSkills };
         const languageCategory = { title: "Language", skills: languageSkills };
 
-
         // Combine all the categories into a single array
         const allSkills = [frontendCategory, backendCategory, toolsCategory, languageCategory];
 
-        // Now you have a single array containing all the filtered categories
         if (allSkills) {
             setFilteredSkills(allSkills)
         }
@@ -76,7 +72,6 @@ const Skills = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

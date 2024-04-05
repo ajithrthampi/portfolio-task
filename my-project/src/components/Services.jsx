@@ -15,8 +15,6 @@ const Services = () => {
         }
     }, [state.services]);
 
-    // console.log("service111111111111111111", services);
-
     const handleMouseEnter = () => {
         if (!disableHoverEvents) {
             setShow(!show)
@@ -86,12 +84,6 @@ const Services = () => {
                                                 <img className='absolute md:w-56 sm:w-44 w-52 max-h-44 left-0 right-0 m-auto xl:top-12 top-8'
                                                     src={item?.image?.url}
                                                     alt="" />
-                                                {/* <img className='absolute  left-0 right-0 m-auto bottom-0 '
-                                            src={proto2}
-                                            alt=""/>
-                                        <img className='absolute  left-0 right-0 m-auto bottom-0 '
-                                            src={proto3}
-                                            alt=""/> */}
                                             </div>
                                         </div>
                                         <div className='absolute inset-0 h-full w-full rounded-xl bg-[#0b011d] sm:px-8 p-5 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]'>
@@ -105,9 +97,7 @@ const Services = () => {
                         ))
                     }
                 </div>
-
             </div>
-
         </div>
     )
 }
